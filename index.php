@@ -357,12 +357,28 @@
         <div class="map">
         </div>
 
-        <div class="form-box">
+        <div class="form-box" id="form">
             <div class="row">
                 <h2>We're happy to hear from you</h2>
             </div>
             <div class="row">
-                <form action="#" method="post" class="contact-form">
+                <form action="mailer.php" method="post" class="contact-form">
+                    <div class="row">
+                        <?php
+                            if($_GET['success'] == 1){
+                                echo "<div class=\"form-message success\">
+                            Thank you! Your message has been sent. 
+                        </div>";
+                            }
+
+                            if($_GET['success'] == -1){
+                                echo "<div class=\"form-message error\">
+                            Oops! Something went wrong. Please try again.
+                        </div>";
+                            }
+                        ?>
+                    </div>
+
                     <div class="row">
                         <div class="col span-1-of-3">
                             <label for="name">
